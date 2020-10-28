@@ -194,6 +194,7 @@ main {
 /* Calendar */
 
 .calendar-wrap {
+    padding-top: 2em;
 	position: relative;
 }
 
