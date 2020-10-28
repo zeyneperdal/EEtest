@@ -339,16 +339,23 @@
 					instance.isRotated = false;
 				}
 			};
-		}
+		} 
 		// Day/Cube click event.
 		instance.clickFn = function(ev) {
+            
 			// If the day is inactive or if the calendar is currently animating then do nothing.
 			if( !instance.isActive || self.isAnimating ) {
 				return false;
 			}
 			self.isAnimating = true;
-			self.isOpen = true;
-			self.currentDayIdx = instance.number;
+			self.isOpen = true;           
+			self.currentDayIdx = instance.number-1;
+           
+            if(instance.number==0)
+                {
+                  
+                  self.currentDayIdx = 31;
+                }
 
 			// Hide the main container
 			anime({
@@ -376,8 +383,21 @@
 						rotateX: day.currentTransform.rotateX,
 						rotateY: day.currentTransform.rotateY
 					});
-
-					self._showContent(instance);
+                       if(instance.number ==0)
+                        {
+                            self.currentDayIdx=instance.number+31;
+                            self._showContent(instance);
+                            self._hidePreviewTitle();
+                            
+                        }
+                    else
+                           {
+                               console.log(instance.number);
+                               self._showContent(instance);
+                           } 
+                  
+                
+				
 				}
 				else {
 					var bcr = day.cube.getBoundingClientRect();
@@ -446,12 +466,17 @@
 	};
 
 	Calendar.prototype._showContent = function(day) {
+     
 		// The content box for the clicked day.
 		var content = contents[this.currentDayIdx],
 			title = content.querySelector('.content__title'),
 			description = content.querySelector('.content__description'),
 			meta = content.querySelector('.content__meta');
 
+      //TODO: Create seperate content for day 30
+        console.log('bu iste'+this.currentDayIdx);
+     
+         
 		content.classList.add('content__block--current');
 
 		day.titlefx.hide();
@@ -476,6 +501,7 @@
 		});
 
 		contentNumber.innerHTML = this.currentDayIdx + 1;
+      
 		anime({
 			targets: contentNumber,
 			duration: 500,
@@ -487,14 +513,17 @@
 	};
 
 	Calendar.prototype._hideContent = function() {
-		var day = this.days[this.currentDayIdx],
+		    var day = this.days[this.currentDayIdx],
 			// The content box for the clicked day.
-			content = contents[this.currentDayIdx],
+            content = contents[this.currentDayIdx],
 			// The content title, description and meta for this day.
 			title = content.querySelector('.content__title'),
 			description = content.querySelector('.content__description'),
 			meta = content.querySelector('.content__meta');
 
+    
+        
+        
 		// The content number placeholder animation.
 		anime({
 			targets: contentNumber,
@@ -661,6 +690,7 @@
 		contentNumber = contentEl.querySelector('.content__number'),
 		isMobile = mobilecheck();
 
+   
 	function init() {
 		layout();
 	}
