@@ -548,8 +548,8 @@ main {
 		padding: 0 calc((100vw - (7 * (12vw ))/2) 5em;
 	}
 	.cube {
-		width: 12vw;
-		height: 12vw;
+		width: 9vw;
+		height: 9vw;
 	}
 	/* push to the right weekday if in big view (we have to push 3 boxes) */
 	.js .cube:first-child {
