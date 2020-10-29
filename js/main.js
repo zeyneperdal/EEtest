@@ -353,7 +353,6 @@
            
             if(instance.number==0)
                 {
-                  
                   self.currentDayIdx = 31;
                 }
 
@@ -383,21 +382,19 @@
 						rotateX: day.currentTransform.rotateX,
 						rotateY: day.currentTransform.rotateY
 					});
-                       if(instance.number ==0)
+                    if(instance.number ==0)
                         {
                             self.currentDayIdx=instance.number+31;
                             self._showContent(instance);
-                            self._hidePreviewTitle();
+                            //self._hidePreviewTitle();
                             
                         }
                     else
                            {
-                               console.log(instance.number);
+                               console.log('instance number: '+instance.number);
                                self._showContent(instance);
                            } 
                   
-                
-				
 				}
 				else {
 					var bcr = day.cube.getBoundingClientRect();
@@ -474,7 +471,7 @@
 			meta = content.querySelector('.content__meta');
 
       //TODO: Create seperate content for day 30
-        console.log('bu iste'+this.currentDayIdx);
+    //    console.log('current day: '+this.currentDayIdx);
      
          
 		content.classList.add('content__block--current');
@@ -678,8 +675,8 @@
 	var calendarEl = document.querySelector('.calendar'),
 		calendarDays = [].slice.call(calendarEl.children),
 		settings = {
-			snow: false,
-			tilt: true
+			snow: true,
+			tilt: false
 		},
 		bgEl = document.body,
 		defaultBgColor = bgEl.style.backgroundColor,

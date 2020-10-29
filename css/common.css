@@ -105,6 +105,8 @@ main {
 	width: 100%;
 	padding: 0.5em 1.25em 0.5em 0.75em;
 	background: #fff;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+    
 }
 
 .codrops-header__main {
@@ -163,6 +165,7 @@ main {
 	transform: rotate3d(0, 0, 1, 22.5deg);
 }
 
+
 .codrops-icon {
 	display: inline-block;
 	margin: 0.5em;
@@ -209,7 +212,7 @@ main {
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
-	overflow: hidden;
+/*	overflow: hidden;*/
 	/* we always want 7 boxes in a row */
 	padding: 3em calc((100vw - (7 * (7vw + 1vw)))/2);
 }
@@ -256,6 +259,7 @@ main {
 	height: 100%;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+    padding-top: 10em;
 }
 
 
@@ -270,7 +274,9 @@ main {
 	width: 7vw;
 	height: 7vw;
 	margin: 0.5vw;
+   
 }
+
 
 .js .cube {
 	-webkit-flex: auto;
@@ -393,9 +399,10 @@ main {
 	font-size: 2vw;
 	font-weight: 700;
 	position: absolute;
-	left: 20vw;
+	left: 1vw;
 	top:1vw;
 	margin: 0;
+    padding-top: -50;
 	white-space: nowrap;
 	pointer-events: none;
 	opacity: 0;
@@ -539,6 +546,12 @@ main {
 	pointer-events: auto;
 	opacity: 1;
 }
+
+
+
+
+
+
 
 @media screen and (max-width: 50.75em) {
 	.calendar {

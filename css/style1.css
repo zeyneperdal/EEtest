@@ -229,10 +229,34 @@
     background-size: contain;
 }
 
+
+/*inactive cube*/
 .cube--inactive .cube__side,
 .no-js .cube--inactive {
-	background: #e1e0e0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+	background-color: transperent;
+    backface-visibility:hidden;
+    -webkit-transform: rotateX(-90deg) translateZ(0vw);
+		transform: rotateX(-90deg) translateZ(0vw);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* With JS we insert a number span into the cube */
