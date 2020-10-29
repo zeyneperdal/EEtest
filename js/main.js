@@ -496,7 +496,6 @@
                meta.innerHTML='';
              
             
-               
            }
            if (todaysDate >= day.number) {
               console.log('past');
@@ -530,7 +529,15 @@
 		});
 
 		contentNumber.innerHTML = this.currentDayIdx + 1;
-       
+        
+        if(contentNumber.innerHTML ==0 || contentNumber.innerHTML==32)
+            {
+                contentNumber.innerHTML =30;
+            }
+     
+        
+        
+       console.log('sayıcık : '+contentNumber.innerHTML );
       
 		anime({
 			targets: contentNumber,
