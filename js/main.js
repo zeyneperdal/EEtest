@@ -387,6 +387,7 @@
                             self.currentDayIdx=instance.number+31;
                             self._showContent(instance);
                             //self._hidePreviewTitle();
+                            console.log('instance number: '+instance.number);
                             
                         }
                     else
@@ -471,8 +472,39 @@
 			meta = content.querySelector('.content__meta');
 
       //TODO: Create seperate content for day 30
-    //    console.log('current day: '+this.currentDayIdx);
+      console.log('current day: '+this.currentDayIdx+'gun sayı:'+day.number);
      
+        
+        
+        // TODO: add future & past days
+        
+        
+         var d = new Date();
+         var todaysDate = d.getDate();
+      
+
+           if (todaysDate == day.number) {
+             console.log('today');
+             content.classList.add('content__block--today');
+               
+           }
+           if (todaysDate < day.number) {
+               console.log('future');
+               content.classList.add('content__block--future');
+               
+               description.innerHTML='Naughty, naughty.You can\'t look early! Check back on that day to see what we\'ve left for you.';
+               meta.innerHTML='';
+             
+            
+               
+           }
+           if (todaysDate >= day.number) {
+              console.log('past');
+              content.classList.add('content__block--past');
+           }
+       
+        
+        
          
 		content.classList.add('content__block--current');
 
@@ -498,6 +530,7 @@
 		});
 
 		contentNumber.innerHTML = this.currentDayIdx + 1;
+       
       
 		anime({
 			targets: contentNumber,
@@ -685,7 +718,9 @@
 		contents = contentEl.querySelectorAll('.content__block'),
 		backCtrl = contentEl.querySelector('.btn-back'),
 		contentNumber = contentEl.querySelector('.content__number'),
+        mydescription = contentEl.querySelector('deneme'),
 		isMobile = mobilecheck();
+    ;
 
    
 	function init() {
